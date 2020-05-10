@@ -9,6 +9,7 @@
 
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="./counties.js"></script>
+    <script src="./renderCountry.js"></script>
 
     <!--
     <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
@@ -30,8 +31,10 @@
 </head>
 <body>
 
-<div class="mx-auto">    <H1> COVID DATA FOR US COUNTIES FROM NYTIMES <br>
-        Select a county to view.  </H1>
+<div class="mx-auto">    <H1> COVID DATA FOR US FROM NYTIMES <br>
+</H1>
+    <H3> US data shown on reload. To filter by state or county use dropdown menus below. <br>
+    </H3>
 </div>
 
 <div>
@@ -44,7 +47,16 @@
 
 <div>
     <!-- Initialize a select button -->
-    SELECT A STATE </br>
+    FILTER BY STATE </br>
+    <select class="selectpicker"  id="stateSelector">
+        <option value="all">all</option>
+    </select>
+
+</div>
+
+<div>
+    <!-- Initialize a select button -->
+    FILTER BY COUNTY : SELECT STATE </br>
     <select class="selectpicker"  id="stateSel">
         <option value="all">all</option>
     </select>
@@ -52,14 +64,19 @@
 </div>
 <div>
     <!-- Initialize a select button -->
-    SELECT A COUNTY </br>
+    FILTER BY COUNTY: SELECT A COUNTY </br>
     <select class="selectpicker"  id="countySel">
         <option value="all">all</option>
     </select>
 
 </div>
-
+<H3> DAILY CASES </H3>
+<div id ="dailycases"></div>
+<H3> DAILY DEATHS </H3>
+<div id ="dailydeaths"></div>
+<H3> CUMULATIVE CASES</H3>
 <div id="cases"></div>
+<H3> CUMULATIVE DEATHS</H3>
 <div id="deaths"></div>
 
 
@@ -70,6 +87,16 @@
 <script src="./data.js"></script>
 <script src="./index.js"></script>
 
+<script src="./renderState.js"></script>
 
+<div>
+   <p> The New York Times has made every effort to ensure the accuracy of the
+    information. However, the database may contain typographic errors or
+    inaccuracies and may not be complete or current at any given time. Licensees
+    further agree to assume all liability for any claims that may arise from or
+    relate in any way to their use of the database and to hold The New York Times
+    Company harmless from any such claims.
+    </p>
+</div>
 </body>
 </html>
